@@ -1,5 +1,5 @@
 [Server]
-Listen = ":80"
+Listen = ":6139"
 Env = "Dev"
 MaxHttpRequestBody = 4
 
@@ -10,8 +10,8 @@ Secret = "U4LOTsSWEASOCXNl4lzyg0rOyGztm1so"
     "gZmZHTdPhnnYX9PPJ0BXTl5BcxIj5hBv" = "830NOp3sbxGJQBzS9onXr0ud01mmm1Vr"
 
 [Database]
-HostPort = "tcp(127.0.0.1:3306)"
-UserPassword = "root:password"
+HostPort = "tcp(127.0.0.1:6316)"
+UserPassword = "root:X5Mo%eUT"
 DB = "az_edu"
 [Database.Conn]
     MaxLifeTime = 600
