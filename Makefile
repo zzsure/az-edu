@@ -1,4 +1,4 @@
-MAIN_PKG:=golang-framework
+MAIN_PKG:=az-edu
 MAIN_PREFIX=$(dir $(MAIN_PKG))
 MAIN=$(subst $(MAIN_PREFIX), , $(MAIN_PKG))
 BIN=$(strip $(MAIN))
@@ -16,14 +16,14 @@ run: build
 	cd run && ./$(BIN) $(ARG)
 
 init:
-	cd run && TARGET='run' ARG='init' docker-compose run --rm golang-framework-devel
+	cd run && TARGET='run' ARG='init' docker-compose run --rm az-edu-devel
 
 docker-build:
 	#cd run && \
-	#TARGET='build' ARG='server' docker-compose run --rm golang-framework-devel && cp $(BIN) ../build/ &&
+	#TARGET='build' ARG='server' docker-compose run --rm az-edu-devel && cp $(BIN) ../build/ &&
 	cd run && cp $(BIN) ../build/ && \
 	cd ../build && \
-	docker build -t zzsure/golang-framework:$(TAG) . && \
-	docker push zzsure/golang-framework:$(TAG)
+	docker build -t zzsure/az-edu:$(TAG) . && \
+	docker push zzsure/az-edu:$(TAG)
 
 .PHONY: build

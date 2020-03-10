@@ -3,17 +3,17 @@ settings:
     force: false
     interval: 0s
 schema:
-- name: golang-framework
+- name: az-edu
   path: .
   env:
     ARG: server
   commands:
     install:
       status: true
-      method: go build -o ./golang-framework -mod=vendor
+      method: go build -o ./az-edu -mod=vendor
     run:
       status: true
-      method: ./golang-framework
+      method: ./az-edu
       args:
         - server
   args:

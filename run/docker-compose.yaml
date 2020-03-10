@@ -1,16 +1,16 @@
 version: "3.3"
 
 services:
-  golang-framework-devel:
+  az-edu-devel:
     image: golang:latest
-    container_name: golang-framework-devel-${USER}
+    container_name: az-edu-devel-${USER}
     network_mode: "host"
-    working_dir: /root/go/src/golang-framework
+    working_dir: /root/go/src/az-edu
     volumes:
-      - "../:/root/go/src/golang-framework"
+      - "../:/root/go/src/az-edu"
     environment:
       - PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/root/go/bin
     entrypoint:
       - bash
       - -c
-      - make ${TARGET:-dev} MAIN_PKG=${MAIN_PKG:-golang-framework} ARG='${ARG}'
+      - make ${TARGET:-dev} MAIN_PKG=${MAIN_PKG:-az-edu} ARG='${ARG}'

@@ -1,4 +1,4 @@
-module golang-framework
+module az-edu
 
 go 1.13
 

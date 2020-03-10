@@ -2,7 +2,7 @@ package response
 
 import (
 	"github.com/gin-gonic/gin"
-	"golang-framework/consts"
+	"az-edu/consts"
 )
 
 func Response(c *gin.Context, code int, msg string, data interface{}) {

@@ -2,14 +2,14 @@ package main
 
 import (
 	"github.com/urfave/cli"
-	"golang-framework/cmd/server"
-	"golang-framework/cmd/tool"
+	"az-edu/cmd/server"
+	"az-edu/cmd/tool"
 	"os"
 )
 
 func main() {
 	app := cli.NewApp()
-	app.Name = "golang-framework"
+	app.Name = "az-edu"
 	app.Commands = []cli.Command{
 		server.Server,
 		tool.InitDB,

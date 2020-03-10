@@ -1,4 +1,4 @@
-# golang-framework
+# az-edu
 
 ## 1.0.1 2020-01-17
 - 更改dep方式为mod方式

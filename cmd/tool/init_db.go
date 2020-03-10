@@ -2,15 +2,15 @@ package tool
 
 import (
 	"github.com/urfave/cli"
-	"golang-framework/conf"
-	"golang-framework/library/db"
-	"golang-framework/library/log"
-	"golang-framework/models"
+	"az-edu/conf"
+	"az-edu/library/db"
+	"az-edu/library/log"
+	"az-edu/models"
 )
 
 var InitDB = cli.Command{
 	Name:  "init",
-	Usage: "golang-framework init db",
+	Usage: "az-edu init db",
 	Flags: []cli.Flag{
 		cli.StringFlag{
 			Name:  "conf, c",

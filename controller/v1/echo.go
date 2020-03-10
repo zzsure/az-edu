@@ -4,9 +4,9 @@ import (
 	"github.com/gin-gonic/gin"
 	"github.com/gin-gonic/gin/binding"
 	"github.com/op/go-logging"
-	"golang-framework/consts"
-	"golang-framework/controller/request"
-	"golang-framework/controller/response"
+	"az-edu/consts"
+	"az-edu/controller/request"
+	"az-edu/controller/response"
 	"math/rand"
 	"time"
 )

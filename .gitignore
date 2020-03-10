@@ -1,10 +1,10 @@
 .idea
 .vscode/
 .DS_Store
-golang-framework
+az-edu
 log/
 bin/
 data/
 run/log/
-run/golang-framework
-build/golang-framework
+run/az-edu
+build/az-edu
