@@ -1,8 +1,10 @@
 package response
 
 import (
-	"github.com/gin-gonic/gin"
 	"az-edu/consts"
+	"az-edu/library/log"
+	"github.com/gin-gonic/gin"
+	"github.com/op/go-logging"
 )
 
 func Response(c *gin.Context, code int, msg string, data interface{}) {
@@ -25,4 +27,26 @@ func ServerErr(c *gin.Context, msg string) {
 
 func Success(c *gin.Context) {
 	Response(c, 0, "success", nil)
+}
+
+func ClientLogErr(c *gin.Context, logger *logging.Logger, msg string) {
+	requestId := c.MustGet(consts.REQUEST_ID_KEY).(log.RequestID)
+	logger.Error(requestId, msg)
+	ClientErr(c, msg)
+}
+
+func ServerLogErr(c *gin.Context, logger *logging.Logger, msg string) {
+	requestId := c.MustGet(consts.REQUEST_ID_KEY).(log.RequestID)
+	logger.Error(requestId, msg)
+	ServerErr(c, msg)
+}
+
+func ServerSucc(c *gin.Context, msg string, data interface{}) {
+	requestId := c.MustGet(consts.REQUEST_ID_KEY).(log.RequestID)
+	c.JSON(consts.HTTP_SUCC_CODE, map[string]interface{}{
+		"data":       data,
+		"error_no":   consts.ERR_NO_SUCC,
+		"error_msg":  msg,
+		"request_id": requestId,
+	})
 }

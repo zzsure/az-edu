@@ -8,3 +8,4 @@ data/
 run/log/
 run/az-edu
 build/az-edu
+run/config-online.toml

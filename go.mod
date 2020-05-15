@@ -17,4 +17,5 @@ require (
 	github.com/urfave/cli v1.20.0
 	golang.org/x/sys v0.0.0-20190610200419-93c9922d18ae // indirect
 	google.golang.org/appengine v1.6.1 // indirect
+	gopkg.in/natefinch/lumberjack.v2 v2.0.0
 )

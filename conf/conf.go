@@ -1,8 +1,8 @@
 package conf
 
 import (
-	"github.com/koding/multiconfig"
 	"az-edu/library/util"
+	"github.com/koding/multiconfig"
 	"strings"
 	"time"
 )
@@ -34,6 +34,12 @@ type ConfigTOML struct {
 	Log struct {
 		Type  string `default:"json" flagUsage:"日志格式，json|raw"`
 		Level int    `default:"5" flagUsage:"日志级别：0 CRITICAL, 1 ERROR, 2 WARNING, 3 NOTICE, 4 INFO, 5 DEBUG"`
+		File  struct {
+			Filename   string `default:"/var/log/airport_portrait.log"`
+			MaxSize    int    `default:"50"`
+			MaxBackups int    `default:"7"`
+			MaxAge     int    `default:"14"`
+		}
 	} `flagUsage:"服务日志配置"`
 }
 

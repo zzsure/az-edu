@@ -1,12 +1,13 @@
 package server
 
 import (
-	"github.com/gin-gonic/gin"
-	"github.com/urfave/cli"
 	"az-edu/conf"
 	"az-edu/controller/v1"
+	"az-edu/library/db"
 	"az-edu/library/log"
 	"az-edu/middleware"
+	"github.com/gin-gonic/gin"
+	"github.com/urfave/cli"
 )
 
 var Server = cli.Command{
@@ -30,7 +31,7 @@ var Server = cli.Command{
 func run(c *cli.Context) {
 	conf.Init(c.String("conf"), c.String("args"))
 	log.Init()
-	//db.Init()
+	db.Init()
 
 	_ = GinEngine().Run(conf.Config.Server.Listen)
 }
@@ -53,8 +54,8 @@ func GinEngine() *gin.Engine {
 }
 
 func V1(r *gin.Engine) {
-	g := r.Group("/v1")
+	g := r.Group("/api/v1")
 	{
-		g.POST("/echo", v1.Echo)
+		g.POST("/question/add", v1.QuestionAdd)
 	}
 }
