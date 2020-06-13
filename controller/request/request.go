@@ -8,3 +8,7 @@ type QuestionAdd struct {
 	Title   string `json:"title"`
 	Content string `json:"content"`
 }
+
+type LabelAdd struct {
+	Name string `json:"name"`
+}

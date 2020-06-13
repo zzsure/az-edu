@@ -57,5 +57,6 @@ func V1(r *gin.Engine) {
 	g := r.Group("/api/v1")
 	{
 		g.POST("/question/add", v1.QuestionAdd)
+		g.POST("/label/add", v1.LabelAdd)
 	}
 }
