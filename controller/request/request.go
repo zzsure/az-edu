@@ -5,8 +5,9 @@ type Echo struct {
 }
 
 type QuestionAdd struct {
-	Title   string `json:"title"`
-	Content string `json:"content"`
+	Title    string `required:"true" json:"title"`
+	Content  string `json:"content"`
+	LabelIDS []uint `json:"label_ids"`
 }
 
 type LabelAdd struct {

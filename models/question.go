@@ -17,7 +17,7 @@ func (q *Quesiton) Save() error {
 	return db.DB.Save(q).Error
 }
 
-func AddQuestion(title, content string) error {
+func AddQuestion(title, content string) (*Quesiton, error) {
 	titleMd5 := util.GetMd5Str(title)
 	logger.Info("title md5 len:", len(titleMd5))
 	q := &Quesiton{
@@ -26,5 +26,24 @@ func AddQuestion(title, content string) error {
 		Weight:   0,
 		TitleMd5: titleMd5,
 	}
-	return q.Save()
+	err := q.Save()
+	return q, err
+}
+
+type QuestionLabel struct {
+	Model
+	QuestionID uint `gorm:"comment:'question表id';not null" json:"question_id"`
+	LabelID    uint `gorm:"comment:'label表id';not null" json:"label_id"`
+}
+
+func (ql *QuestionLabel) Save() error {
+	return db.DB.Save(ql).Error
+}
+
+func AddQuestionLabel(questionID, labelID uint) error {
+	ql := &QuestionLabel{
+		QuestionID: questionID,
+		LabelID:    labelID,
+	}
+	return ql.Save()
 }

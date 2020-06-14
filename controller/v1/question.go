@@ -14,10 +14,19 @@ func QuestionAdd(c *gin.Context) {
 		response.ClientLogErr(c, logger, err.Error())
 		return
 	}
-	err := models.AddQuestion(req.Title, req.Content)
+	// TODO: transaction
+	question, err := models.AddQuestion(req.Title, req.Content)
 	if err != nil {
 		response.ServerLogErr(c, logger, err.Error())
 		return
+	}
+	for _, labelID := range req.LabelIDS {
+		// TODO: check label id
+		err := models.AddQuestionLabel(question.ID, labelID)
+		if err != nil {
+			response.ClientLogErr(c, logger, err.Error())
+			return
+		}
 	}
 	response.ServerSucc(c, "success", nil)
 }
