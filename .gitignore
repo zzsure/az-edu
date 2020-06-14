@@ -2,10 +2,8 @@
 .vscode/
 .DS_Store
 az-edu
-log/
 bin/
 data/
-run/log/
 run/az-edu
 build/az-edu
 run/config-online.toml
